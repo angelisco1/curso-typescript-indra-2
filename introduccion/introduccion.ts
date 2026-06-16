@@ -4,7 +4,7 @@
 
 const nombre: string = 'Charly'
 const apellido: string = 'Falco'
-const edad: number = 33
+let edad = 33
 
 const estaTrabajando: boolean = true
 
@@ -109,8 +109,8 @@ const usuario2: Usuario = {
 }
 
 // Valores truthy y falsy
-// Falsy: false, 0, ''
-// Truthy: true, >0
+// Falsy: false, 0, '', undefined, null, NaN
+// Truthy: true, >0, <0, !'', [], {}
 
 
 // Operador ??
@@ -155,6 +155,10 @@ console.log(`${nombre} ${apellido} tiene ${edad} años.`)
 // Tuplas
 const telefono: [string, number] = ['+34', 666777888]
 
+// type Telefono = [prefijo: string, numero: number]
+type Telefono = [nombre: string, numero: number]
+const telefono2: Telefono = ['Charly', 666777888]
+
 type Direccion = [tipo: string, nombre: string, numero: number, otrosDatos?: string | number]
 // const direccion: [tipo: string, nombre: string, numero: number] = ['C/', 'Norte', 23]
 const direccion: Direccion = ['C/', 'Norte', 23]
@@ -162,13 +166,25 @@ const direccion2: Direccion = ['C/', 'Oeste', 72, '3º G']
 const direccion3: Direccion = ['C/', 'Oeste', 72, 3]
 
 // Array
+// const numeros: number[] = [1, 2, 3]
 const numeros: Array<number> = [1, 2, 3]
+
+const numerosYLetras: (number | string)[] = [1, 2, 3, 'a', 'b', 'c']
+const numerosYLetras2: Array<number | string> = [1, 2, 3, 'a', 'b', 'c']
 
 // Desestructuración
 // const tipoDireccion1 = direccion[0]
 // const nombreDireccion1 = direccion[1]
 // const numDireccion1 = direccion[2]
 const [tipoDireccion, nombreDireccion, numDireccion] = direccion
+
+// Esto se suele usar mucho en React para crear un estado del componente
+// - Así quedaría sin la desestructuración
+// const estado = useState(0)
+// estado[0]
+// estado[1](estado[0] + 1)
+// - Así quedaría con la desestructuración
+// const [cuenta, setCuenta] = useState(0)
 
 
 // Objetos
@@ -224,6 +240,9 @@ const [u1, u2, ...rest] = usuarios
 console.log(u1)
 console.log(u2)
 console.log(rest)
+
+// equipos = ['España', 'Cabo Verde', 'Alemania', 'Japón', 'EEUU', 'Canada', ...]
+// const [eq1, eq2, ...resto] = equipos
 
 
 // Función con tipos
@@ -294,6 +313,7 @@ console.log(getTicketLoteria('primitiva', 1, 2, 3, 4, 5, 6))
 
 // })
 
+// Utility type: Partial
 type ListaUsuarios = Array<Partial<Usuario>>
 
 const usuariosQueNoTrabajan: ListaUsuarios = usuarios.filter((usuario: Partial<Usuario>) => {
@@ -362,10 +382,6 @@ console.log(1 === 1) // true
 // !== -> compara valores y tipos
 
 
-// Ejercicio: definir pelicula y hacer operaciones con las funciones de los arrays
-
-
-
 // Sobrecarga de funciones
 function doble(valor: number): number;
 function doble(valor: string): string;
@@ -386,4 +402,8 @@ function doble(valor: any): any {
 console.log(doble(3))
 console.log(doble('hola'))
 console.log(doble([true, false]))
+
+
+
+
 

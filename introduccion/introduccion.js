@@ -4,7 +4,7 @@
 // ----------------------------
 const nombre = 'Charly';
 const apellido = 'Falco';
-const edad = 33;
+let edad = 33;
 const estaTrabajando = true;
 console.log(nombre + " " + apellido + " tiene " + edad + " años.");
 // any -> es una mala práctica
@@ -43,8 +43,8 @@ const usuario2 = {
     }
 };
 // Valores truthy y falsy
-// Falsy: false, 0, ''
-// Truthy: true, >0
+// Falsy: false, 0, '', undefined, null, NaN
+// Truthy: true, >0, <0, !'', [], {}
 // Operador ??
 const edad2 = 0;
 if (edad2) {
@@ -77,12 +77,16 @@ console.log(nombre + " " + apellido + " tiene " + edad + " años.");
 console.log(`${nombre} ${apellido} tiene ${edad} años.`);
 // Tuplas
 const telefono = ['+34', 666777888];
+const telefono2 = ['Charly', 666777888];
 // const direccion: [tipo: string, nombre: string, numero: number] = ['C/', 'Norte', 23]
 const direccion = ['C/', 'Norte', 23];
 const direccion2 = ['C/', 'Oeste', 72, '3º G'];
 const direccion3 = ['C/', 'Oeste', 72, 3];
 // Array
+// const numeros: number[] = [1, 2, 3]
 const numeros = [1, 2, 3];
+const numerosYLetras = [1, 2, 3, 'a', 'b', 'c'];
+const numerosYLetras2 = [1, 2, 3, 'a', 'b', 'c'];
 // Desestructuración
 // const tipoDireccion1 = direccion[0]
 // const nombreDireccion1 = direccion[1]
@@ -124,6 +128,8 @@ const [u1, u2, ...rest] = usuarios;
 console.log(u1);
 console.log(u2);
 console.log(rest);
+// equipos = ['España', 'Cabo Verde', 'Alemania', 'Japón', 'EEUU', 'Canada', ...]
+// const [eq1, eq2, ...resto] = equipos
 // Función con tipos
 const suma = (n1, n2) => {
     return n1 + n2;
@@ -230,3 +236,4 @@ function doble(valor) {
 console.log(doble(3));
 console.log(doble('hola'));
 console.log(doble([true, false]));
+// Ejercicio: definir pelicula y hacer operaciones con las funciones de los arrays
