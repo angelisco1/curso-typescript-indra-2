@@ -1,4 +1,4 @@
-import { Curso } from "./curso";
+import { Curso } from "./curso.js";
 
 export class CursoOnline extends Curso {
   public sesiones: Array<string> = []
@@ -11,11 +11,16 @@ export class CursoOnline extends Curso {
     public plataforma: string,
     public numPlazas: number,
   ) {
-    super(cursoId, nombre)
+    super(cursoId, nombre, numPlazas)
   }
 
   addSesion(fecha: string): void {
+    if (this.sesiones.includes(fecha)) {
+      console.log(`La sesión ${fecha} ya estaba registrada`)
+      return
+    }
     this.sesiones.push(fecha)
+    console.log(`Se ha añadido la sesión ${fecha} al curso ${this.nombre}`)
   }
 
   registrarAsistencia(alumno: string, fecha: string) {
@@ -41,5 +46,6 @@ export class CursoOnline extends Curso {
     console.log(`El alumno ${alumno} ha sido apuntado para el ${fecha}`)
   }
 
+  // porcentajeAsistencia() { }
 
 }

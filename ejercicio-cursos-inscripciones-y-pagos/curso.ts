@@ -6,7 +6,20 @@ export class Curso {
   constructor(
     public cursoId: string,
     public nombre: string,
+    public numPlazas: number | null
   ) { }
+
+  inscribirAlumno(alumno: string): void {
+    const hayPlazas = this.numPlazas === null || this.numPlazas > this.listaAlumnos.length
+
+    if (hayPlazas && !this.listaAlumnos.includes(alumno)) {
+      this.listaAlumnos.push(alumno)
+      console.log(`El alumno ${alumno} inscrito en el curso ${this.nombre}`)
+    } else {
+      console.log(`El alumno ${alumno} no se ha podido inscribir en el curso ${this.nombre}`)
+    }
+  }
+
 
 }
 

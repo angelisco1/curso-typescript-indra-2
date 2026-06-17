@@ -1,5 +1,7 @@
 class Mascota {
   // public nombre: string
+  // public tipo: string
+  // public sonido: string
   
   // constructor(nombre: string, tipo: string, sonido: string) {
   //   this.nombre = nombre

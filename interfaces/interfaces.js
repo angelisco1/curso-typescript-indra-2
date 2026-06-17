@@ -17,8 +17,13 @@ const mike = {
     cumplirAnyos: function () {
         console.log(this);
         this.edad += 1;
+        const that = this;
+        const fn1 = function () {
+            console.log('Fn1', that);
+        };
+        fn1();
         const fn = () => {
-            console.log(this);
+            console.log('Fn', this);
         };
         fn();
     }
