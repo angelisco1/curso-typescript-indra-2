@@ -19,8 +19,6 @@ export class Curso {
       console.log(`El alumno ${alumno} no se ha podido inscribir en el curso ${this.nombre}`)
     }
   }
-
-
 }
 
 export const A = 1
