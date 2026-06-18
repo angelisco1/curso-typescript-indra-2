@@ -1,8 +1,9 @@
 import { Curso } from "./curso.js"
 import { InscripcionesLimitadas } from "./inscripciones-limitadas.js"
+import { ConAsistencias, ResumenCurso } from "./types.js"
 
 
-export class CursoPresencial extends Curso {
+export class CursoPresencial extends Curso implements ConAsistencias {
   // Fecha[]
   public sesiones: Array<string> = []
   // Alumno, Fecha[]
@@ -44,6 +45,12 @@ export class CursoPresencial extends Curso {
     console.log(`El alumno ${alumno} ha sido apuntado para el ${fecha}`)
   }
 
+  getResumen(): ResumenCurso{
+    return {
+      cursoId: this.cursoId,
+      nombre: this.nombre
+    }
+  }
   // porcentajeAsistencia() { }
 
 }

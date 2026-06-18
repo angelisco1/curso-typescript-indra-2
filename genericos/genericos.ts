@@ -3,7 +3,7 @@ function getRandomItem<T>(items: Array<T>): T {
   return items[posicion]
 }
 
-let numAleatorio = getRandomItem([1, 2, 3, 4, 5])
+let numAleatorio = getRandomItem<number>([1, 2, 3, 4, 5])
 let textoAleatorio = getRandomItem(['a', 'b', 'c', 'd'])
 console.log(numAleatorio, textoAleatorio)
 
@@ -62,4 +62,15 @@ class MiCustomMap<K, V> {
   set(key: K, value: V): void {
     this.obj[key] = value
   }
+
+  clear(): void {
+    this.obj = {}
+  }
 }
+
+const map1 = new MiCustomMap<string, number>()
+console.log(map1.has('a'))
+map1.set('a', 4)
+map1.set('b', 0)
+console.log(map1.has('a'))
+console.log(map1.get('b'))

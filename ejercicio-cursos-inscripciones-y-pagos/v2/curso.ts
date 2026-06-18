@@ -1,10 +1,11 @@
 // Export nombrado
 
 import { Inscripciones } from "./inscripciones.js"
+import { Alumno, Alumnos, ICurso } from "./types.js"
 
 // export class Curso {
-export class Curso {
-  public listaAlumnos: Array<string> = []
+export class Curso implements ICurso {
+  public listaAlumnos: Alumnos = []
 
   constructor(
     public cursoId: string,
@@ -12,7 +13,7 @@ export class Curso {
     public metodoInscripcion: Inscripciones,
   ) { }
 
-  inscribirAlumno(alumno: string): void {
+  inscribirAlumno(alumno: Alumno): void {
     this.metodoInscripcion.inscribirAlumno(this, alumno)
   }
 }

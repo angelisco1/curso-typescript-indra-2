@@ -1,5 +1,6 @@
 import { Curso } from "./curso.js";
 import { InscripcionesIlimitadas } from "./inscripciones-ilimitadas.js";
+import { ConAsistencias } from "./types.js";
 
 export class CursoEnlatado extends Curso {
   // Alumno, MinVisualizados

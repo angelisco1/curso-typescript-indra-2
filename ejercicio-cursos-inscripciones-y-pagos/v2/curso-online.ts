@@ -1,7 +1,8 @@
 import { Curso } from "./curso.js";
 import { InscripcionesLimitadas } from "./inscripciones-limitadas.js";
+import { ConAsistencias } from "./types.js";
 
-export class CursoOnline extends Curso {
+export class CursoOnline extends Curso implements ConAsistencias {
   public sesiones: Array<string> = []
   // Alumno, Fecha[]
   public asistencias: Map<string, Array<string>> = new Map()
